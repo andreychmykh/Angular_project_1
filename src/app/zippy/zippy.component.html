@@ -1,0 +1,12 @@
+<div class="zippy">
+  <div class="zippy-title" [class.expanded]="isOpen" (click)="toggle()">
+    {{ title }}
+    <span class="glyphicon" [ngClass]="{
+    'glyphicon-chevron-up': isOpen,
+    'glyphicon-chevron-down': !isOpen
+  }"></span>
+  </div>
+  <div class="zippy-content" *ngIf="isOpen">
+    <ng-content></ng-content>
+  </div>
+</div>

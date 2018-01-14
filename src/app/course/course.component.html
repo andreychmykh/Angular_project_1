@@ -1,0 +1,49 @@
+<h2>{{ courses.length + ' ' + getTitle() }}</h2>
+
+<ul>
+  <li *ngFor="let course of courses">
+    {{ course }}
+  </li>
+</ul>
+
+<img [src]="imageUrl" />
+
+<table>
+  <tr>
+    <td [attr.colspan]="colSpanTop"> woo</td>
+    <td [attr.colspan]="colSpanTop"> woo</td>
+    <td [attr.colspan]="colSpanTop"> woo</td>
+    <td [attr.colspan]="colSpanTop"> woo</td>
+  </tr>
+  <tr>
+    <td [attr.colspan]="colSpanBottom"> woo</td>
+    <td [attr.colspan]="colSpanBottom"> woo</td>
+  </tr>
+</table>
+
+<button class="btn btn-primary" (click)="onClick($event)" [style.backgroundColor]="isActive ? 'blue' : 'white'" [style.color]="'red'">
+  Click </button>
+<div (click)="onDivClicked()">
+  <button (click)="onSave($event)"> Save </button>
+</div>
+
+<input #email (keyup.enter)="onKeyUpTwo(email.value)" />
+
+<input [(ngModel)]="emailVal" (keyup.enter)="onKeyUp()" />
+
+<br/> {{course.title | uppercase | lowercase}}
+<br/> {{course.rating | number:'2.1-3'}}
+<br/> {{course.students | number}}
+<br/> {{course.price | currency:'AUD':true:'3.2-2'}}
+<br/> {{course.releaseDate | date:'longDate'}}
+<br/>
+<br/> {{textP | summary:'10'}}
+<br/>
+
+<!--project 1-->
+<span [class]="getIcon()" (click)="onClickThree()"> </span>
+
+<!--project 2-->
+<br/>
+<input [(ngModel)]="movieTitle" />
+<br/> {{movieTitle | movie}}

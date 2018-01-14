@@ -1,0 +1,32 @@
+<form [formGroup]="form" (ngSubmit)="changePassword()">
+  <div class="form-group">
+    <label for="oldPassword">Old Password</label>
+    <input formControlName='oldPassword' id="oldPassword" type="password" class="form-control">
+    <div class='alert' *ngIf="oldPassword.pending">Checking if correct...</div>
+    <div class="alert alert-danger" *ngIf="oldPassword.touched && oldPassword.invalid">
+      <div *ngIf='oldPassword.errors.required'>This field is required.</div>
+      <div *ngIf='oldPassword.errors.incorrectPassword'>This password is incorrect</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="newPassword">Old Password</label>
+    <input formControlName='newPassword' id="newPassword" type="password" class="form-control">
+    <div class='alert' *ngIf="newPassword.pending">Checking if correct...</div>
+    <div class="alert alert-danger" *ngIf="newPassword.touched && newPassword.invalid">
+      <div *ngIf='newPassword.errors.required'>This field is required.</div>
+      <div *ngIf='newPassword.errors.incorrectPassword'>This password is incorrect</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="confirmPassword">Old Password</label>
+    <input formControlName='confirmPassword' id="confirmPassword" type="password" class="form-control">
+    <div class='alert' *ngIf="confirmPassword.pending">Checking if correct...</div>
+    <div class="alert alert-danger" *ngIf="confirmPassword.touched && confirmPassword.invalid">
+      <div *ngIf='confirmPassword.errors.required'>This field is required.</div>
+    </div>
+    <div class="alert alert-danger" *ngIf='confirmPassword.valid && (this.form.errors !== null) && this.form.errors.incorrectConfirmation'>
+      Your passwords do not match.
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit" [disabled]='this.form.invalid'>Change Password</button>
+</form>

@@ -1,0 +1,17 @@
+
+.profile {
+width: 80px;
+height: 80px;
+border-radius: 100%;
+margin: 20px;
+}
+
+.follower {
+    display: flex;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-top:20px;
+}
